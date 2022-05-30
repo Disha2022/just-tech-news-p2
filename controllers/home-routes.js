@@ -40,4 +40,19 @@ router.get('/', (req, res) => {
     });
 });
 
+//login
+router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('login');
+});
+
+router.get('/', (req, res) => {
+  console.log(req.session);
+
+  // other logic...
+});
 module.exports = router;
